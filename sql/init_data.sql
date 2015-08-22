@@ -1,7 +1,7 @@
 -- --------------------------------------------------------
--- 主机:                           127.0.0.1
--- 服务器版本:                        5.6.17 - MySQL Community Server (GPL)
--- 服务器操作系统:                      Win64
+-- 主机:                           120.27.39.174
+-- 服务器版本:                        5.6.25-log - Source distribution
+-- 服务器操作系统:                      Linux
 -- HeidiSQL 版本:                  9.1.0.4867
 -- --------------------------------------------------------
 
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `codepad_article` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=276 DEFAULT CHARSET=utf8;
 
--- 正在导出表  codepad.codepad_article 的数据：~780 rows (大约)
+-- 正在导出表  codepad.codepad_article 的数据：~241 rows (大约)
 DELETE FROM `codepad_article`;
 /*!40000 ALTER TABLE `codepad_article` DISABLE KEYS */;
 INSERT INTO `codepad_article` (`id`, `pid`, `text`, `iconCls`, `state`, `node`, `open`, `article`, `create_id`, `create_dt`, `update_id`, `update_dt`) VALUES
@@ -293,7 +293,7 @@ DELETE FROM `shiro_permissions`;
 INSERT INTO `shiro_permissions` (`id`, `permission`, `permission_desc`) VALUES
 	(1, 'crm:system:auth', '权限设置'),
 	(2, 'cms:system:setting', '系统设置'),
-	(3, 'cms:wechat', '微信设置');
+	(3, 'codepad', 'Codepad设置');
 /*!40000 ALTER TABLE `shiro_permissions` ENABLE KEYS */;
 
 
@@ -312,7 +312,7 @@ DELETE FROM `shiro_roles`;
 /*!40000 ALTER TABLE `shiro_roles` DISABLE KEYS */;
 INSERT INTO `shiro_roles` (`id`, `role`, `role_desc`) VALUES
 	(1, 'admin', '超级管理员'),
-	(2, 'wechat', '微信管理员'),
+	(2, 'codepad', 'codepad管理员'),
 	(3, 'system', '系统管理员');
 /*!40000 ALTER TABLE `shiro_roles` ENABLE KEYS */;
 
@@ -333,6 +333,7 @@ INSERT INTO `shiro_roles_permissions` (`role_id`, `permission_id`) VALUES
 	(1, 2),
 	(1, 3),
 	(2, 2),
+	(2, 3),
 	(3, 1);
 /*!40000 ALTER TABLE `shiro_roles_permissions` ENABLE KEYS */;
 
@@ -351,17 +352,16 @@ CREATE TABLE IF NOT EXISTS `shiro_urls` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- 正在导出表  codepad.shiro_urls 的数据：~9 rows (大约)
+-- 正在导出表  codepad.shiro_urls 的数据：~8 rows (大约)
 DELETE FROM `shiro_urls`;
 /*!40000 ALTER TABLE `shiro_urls` DISABLE KEYS */;
 INSERT INTO `shiro_urls` (`id`, `permission_id`, `url_type_id`, `url`, `text`, `icon`, `url_order`, `is_iframe`) VALUES
 	(1, 1, 1, '/system/permission', '权限管理', 'fa fa-cog', 1003, 0),
-	(2, 3, 1, '/system/url', '链接管理', 'fa fa-cog', 1001, 0),
+	(2, 1, 1, '/system/url', '链接管理', 'fa fa-cog', 1001, 0),
 	(3, 1, 1, '/system/url_type', '链接类型', 'fa fa-cog', 1002, 0),
 	(4, 1, 1, '/system/user', '用户管理', 'fa fa-cog', 1005, 0),
 	(5, 1, 1, '/system/role', '角色管理', 'fa fa-cog', 1004, 0),
 	(6, 2, 2, '/druid/index.htm', 'durid监控', 'fa fa-cog', 2001, 1),
-	(7, 2, 3, '/weixin/customer', '微信客户', 'fa fa-cog', 3001, 0),
 	(8, 2, 2, '/system/config', '参数管理', 'fa fa-cog', 2002, 0),
 	(9, 2, 2, '/system/config_type', '参数类型', 'fa fa-cog', 2003, 0);
 /*!40000 ALTER TABLE `shiro_urls` ENABLE KEYS */;
@@ -376,13 +376,12 @@ CREATE TABLE IF NOT EXISTS `shiro_urls_type` (
   PRIMARY KEY (`url_type_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- 正在导出表  codepad.shiro_urls_type 的数据：~3 rows (大约)
+-- 正在导出表  codepad.shiro_urls_type 的数据：~2 rows (大约)
 DELETE FROM `shiro_urls_type`;
 /*!40000 ALTER TABLE `shiro_urls_type` DISABLE KEYS */;
 INSERT INTO `shiro_urls_type` (`url_type_id`, `url_type_name`, `url_type_icon`) VALUES
 	(1, '权限配置', 'fa fa-cog'),
-	(2, '系统配置', 'fa fa-cog'),
-	(3, '微信配置', 'fa fa-cog');
+	(2, '系统配置', 'fa fa-cog');
 /*!40000 ALTER TABLE `shiro_urls_type` ENABLE KEYS */;
 
 
@@ -402,9 +401,9 @@ CREATE TABLE IF NOT EXISTS `shiro_users` (
 DELETE FROM `shiro_users`;
 /*!40000 ALTER TABLE `shiro_users` DISABLE KEYS */;
 INSERT INTO `shiro_users` (`id`, `username`, `password`, `salt`, `locked`) VALUES
-	(1, 'admin', '8e7a4a6bad4f685bd9da4f78b5f76f9f', 'shiro', 0),
-	(2, 'system', 'b5435b43cca8783d13515ecaa3c28a6c', 'shiro', 0),
-	(3, 'wechat', '8e7a4a6bad4f685bd9da4f78b5f76f9f', 'shiro', 0);
+	(1, 'admin', '8ba23432beaf969949c69224c595fdcf', 'shiro', 0),
+	(2, 'hadong', '8ba23432beaf969949c69224c595fdcf', 'shiro', 0),
+	(3, 'wengel', 'a4d4764712ec4ccf8b979c7d1e62243c', 'shiro', 0);
 /*!40000 ALTER TABLE `shiro_users` ENABLE KEYS */;
 
 
@@ -421,7 +420,7 @@ DELETE FROM `shiro_users_roles`;
 /*!40000 ALTER TABLE `shiro_users_roles` DISABLE KEYS */;
 INSERT INTO `shiro_users_roles` (`user_id`, `role_id`) VALUES
 	(1, 1),
-	(2, 3),
+	(2, 2),
 	(3, 2);
 /*!40000 ALTER TABLE `shiro_users_roles` ENABLE KEYS */;
 
