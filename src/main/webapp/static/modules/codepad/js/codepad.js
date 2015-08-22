@@ -1,7 +1,3 @@
-var duoshuoQuery = {
-    short_name: "codepad"
-};
-var new_list_menu_li = "";
 var search_value = '';
 $(document).ready(function() {
 	init_layout();
@@ -98,6 +94,14 @@ function load_list_tree(search_value) {
             
         },
         onClick: function(node) {
+        	if(node.open == '0' && !isLogin()){
+        		$.messager.alert('提示', '请先登录才能查看此文件', 'info');
+        		return false;
+        	}
+        	if(node.open == '0' && node.create_id != $.cookie('c_nick')){
+        		$.messager.alert('提示', '您没有权限查看此文件', 'info');
+        		return false;
+        	}
             if (node.node == '0') {
             	open_tab(node.id, node.text);
             }
@@ -540,8 +544,9 @@ function load_directPage() {
 function after_tab_load(id){
 	reg_tab_page_menus();
 	apply_highlighting('tab_page_'+id);
+	var page_url = window.location.protocol +'//'+ window.location.host +window.location.pathname+ '?aid=' + id;
+	toggleDuoshuoComments('#comment-box-' + id, id, page_url);
 	closeProgress();
-    //toggleDuoshuoComments('#comment-box-' + id, id, window.location.host + '?cid=' + id);
 }
 /*获取URL参数*/
 function getUrlParam(key) {
