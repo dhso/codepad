@@ -10,33 +10,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- 导出  表 wechat.blog_articles 结构
-DROP TABLE IF EXISTS `blog_articles`;
-CREATE TABLE IF NOT EXISTS `blog_articles` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- 正在导出表  wechat.blog_articles 的数据：~0 rows (大约)
-DELETE FROM `blog_articles`;
-/*!40000 ALTER TABLE `blog_articles` DISABLE KEYS */;
-/*!40000 ALTER TABLE `blog_articles` ENABLE KEYS */;
-
-
--- 导出  表 wechat.blog_tags 结构
-DROP TABLE IF EXISTS `blog_tags`;
-CREATE TABLE IF NOT EXISTS `blog_tags` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- 正在导出表  wechat.blog_tags 的数据：~0 rows (大约)
-DELETE FROM `blog_tags`;
-/*!40000 ALTER TABLE `blog_tags` DISABLE KEYS */;
-/*!40000 ALTER TABLE `blog_tags` ENABLE KEYS */;
-
-
--- 导出  表 wechat.codepad_article 结构
+-- 导出  表 codepad.codepad_article 结构
 DROP TABLE IF EXISTS `codepad_article`;
 CREATE TABLE IF NOT EXISTS `codepad_article` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -52,9 +26,9 @@ CREATE TABLE IF NOT EXISTS `codepad_article` (
   `update_id` varchar(50) DEFAULT NULL,
   `update_dt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=273 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=276 DEFAULT CHARSET=utf8;
 
--- 正在导出表  wechat.codepad_article 的数据：~800 rows (大约)
+-- 正在导出表  codepad.codepad_article 的数据：~780 rows (大约)
 DELETE FROM `codepad_article`;
 /*!40000 ALTER TABLE `codepad_article` DISABLE KEYS */;
 INSERT INTO `codepad_article` (`id`, `pid`, `text`, `iconCls`, `state`, `node`, `open`, `article`, `create_id`, `create_dt`, `update_id`, `update_dt`) VALUES
@@ -299,34 +273,11 @@ INSERT INTO `codepad_article` (`id`, `pid`, `text`, `iconCls`, `state`, `node`, 
 	(246, 84, 'wssh安装', 'icon-m-file', 'open', 0, 1, NULL, 'hadong', '2015-04-12 23:09:32', '', '2015-08-14 15:12:49'),
 	(248, 27, 'MSMQ', 'icon-m-folder', 'closed', 1, 1, NULL, 'hadong', '2015-04-20 09:49:01', '', '2015-08-14 15:12:49'),
 	(249, 248, 'MSMQ安装', 'icon-m-file', 'open', 0, 1, '<div class="title" style="font-family: \'Microsoft YaHei UI\', \'Microsoft YaHei\', SimSun, \'Segoe UI\', \'Lucida Grande\', Verdana, Arial, Helvetica, sans-serif; border: 0px; margin: 0px 0px 12px; outline: 0px; padding: 0px; color: rgb(112, 112, 112); line-height: 1.3; font-size: 36px; height: auto; font-stretch: normal; word-wrap: break-word;">安装“消息队列 (MSMQ)”</div><div id="mainSection" style="font-family: \'Microsoft YaHei UI\', \'Microsoft YaHei\', SimSun, \'Segoe UI\', \'Lucida Grande\', Verdana, Arial, Helvetica, sans-serif; border: 0px; margin: 0px; outline: 0px; padding: 0px; color: rgb(42, 42, 42); line-height: 16.2016201019287px;"><div id="mainBody" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"></p><div class="introduction" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt1" sentenceid="9b5559a717126f8513574b03cee4eae0" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">以下过程介绍如何安装“消息队列 4.0”和“消息队列 3.0”。</span></p><div class="alert" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><table style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; border-spacing: 0px;"><tbody style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><tr style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><th style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><img src="https://i-technet.sec.s-msft.com/Aa967729.alert_note(zh-cn,VS.110).gif" alt="说明" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;" /><span style="font-family: inherit; border: 0px; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">说明</span></th></tr><tr style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><td style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt2" sentenceid="1859a7881de9a4c6f7c153c197f2d1cf" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">消息队列 4.0 在 Windows XP 和 Windows Server 2003 中不可用。</span></p></td></tr></tbody></table></div></div><div class="details" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 5px 0px; outline: 0px; padding: 0px;"><a href="https://technet.microsoft.com/zh-cn/aa967729.aspx#" class="summary summaryOpen" style="font-family: inherit; border: 0px; font-weight: bold; font-style: inherit; margin: 0px; outline: 0px; padding: 0px 0px 0px 18px; color: rgb(0, 0, 0); cursor: pointer; text-decoration: none; clear: both; font-size: 14px; background-image: url(https://i-technet.sec.s-msft.com/Areas/Sto/Content/Theming/Images/minus.gif?v=635642249336162613); background-position: 0% 50%; background-repeat: no-repeat;"></a><div class="section expand" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><a id="sectionToggle0" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; color: rgb(0, 116, 158); cursor: pointer;"></a><h3 class="procedureSubHeading" style="font-family: \'Segoe UI\', \'Lucida Grande\', Verdana, Arial, Helvetica, sans-serif; border: 0px; font-weight: normal; font-style: inherit; margin: 3px 0px; outline: 0px; padding: 0px; line-height: 1.3; font-size: 20px; height: auto; overflow: visible;">在 Windows Server 2008 or Windows Server 2008 R2 上安装消息队列 4.0</h3><div class="subSection" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><ol style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 12px 0px 12px 12px; outline: 0px; padding: 16px; line-height: 1.5;"><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt3" sentenceid="9e86fbbedbeaf7cad81b56241b311b17" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">在服务器管理器中，单击<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“功能”</span>。</span></p></li><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt4" sentenceid="d61c61b7b171e79f54c7112f4a1c91d2" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">在<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“功能摘要”</span>下的右窗格中，单击<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“添加功能”</span>。</span></p></li><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt5" sentenceid="2a24f2f72d47420e374d8565bc9037a8" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">在生成的窗口中，展开<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“消息队列”</span>。</span></p></li><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt6" sentenceid="51370a7d2f9c688899720ea15ca5f358" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">展开<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“消息队列服务”</span>。</span></p></li><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt7" sentenceid="c0dd490f977f82a5d680fc911f5cbf7d" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">单击<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“目录服务集成”</span>（用于加入域的计算机），然后单击<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“HTTP 支持”</span>。</span></p></li><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt8" sentenceid="750d290b7014039c344af0953be86d13" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">单击<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“下一步”</span>，然后单击<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“安装”</span>。</span></p></li></ol></div><h3 class="procedureSubHeading" style="font-family: \'Segoe UI\', \'Lucida Grande\', Verdana, Arial, Helvetica, sans-serif; border: 0px; font-weight: normal; font-style: inherit; margin: 3px 0px; outline: 0px; padding: 0px; line-height: 1.3; font-size: 20px; height: auto; overflow: visible;">在 Windows 7 或 Windows Vista 上安装消息队列 4.0</h3><div class="subSection" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><ol style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 12px 0px 12px 12px; outline: 0px; padding: 16px; line-height: 1.5;"><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt9" sentenceid="94de1c390325dc0457b62b496f0c3f6e" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">打开<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“控制面板”</span>。</span></p></li><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt10" sentenceid="0862bf2a70cf772fcfafc9ca7af632fc" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">单击<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“程序”</span>，然后在<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“程序和功能”</span>下单击<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“打开或关闭 Windows 功能”</span>。</span></p></li><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt11" sentenceid="f44f81df4da2bef0877bda877e045ce1" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">展开“Microsoft Message Queue (MSMQ) 服务器”，展开“Microsoft Message Queue (MSMQ) 服务器核心”，然后选中对应于以下要安装的“消息队列”功能的复选框：</span></p><ul style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 6px 0px 6px 12px; outline: 0px; padding: 0px; line-height: 1.5;"><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px 0px 3px 12px; list-style: none; background: url(https://i-technet.sec.s-msft.com/Areas/Sto/Content/Theming/Images/common.png?v=635642249335068844) -405px -1px no-repeat transparent;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt12" sentenceid="ae626169a15bd0718e7e1edf00a30e9a" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">MSMQ Active Directory 域服务集成（用于加入域的计算机）。</span></p></li><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px 0px 3px 12px; list-style: none; background: url(https://i-technet.sec.s-msft.com/Areas/Sto/Content/Theming/Images/common.png?v=635642249335068844) -405px -1px no-repeat transparent;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt13" sentenceid="ffe7776b93bb4c25e4afa390eca3af6f" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">MSMQ HTTP 支持。</span></p></li></ul></li><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt14" sentenceid="d75006f118c9cfc06bd2398b7c6cc909" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">单击<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“确定”</span>。</span></p></li><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt15" sentenceid="f75243c8eee6e11b5c3d3375ad593012" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">如果提示您重新启动计算机，请单击<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“确定”</span>完成安装。</span></p></li></ol></div><h3 class="procedureSubHeading" style="font-family: \'Segoe UI\', \'Lucida Grande\', Verdana, Arial, Helvetica, sans-serif; border: 0px; font-weight: normal; font-style: inherit; margin: 3px 0px; outline: 0px; padding: 0px; line-height: 1.3; font-size: 20px; height: auto; overflow: visible;">在 Windows XP 和 Windows Server 2003 上安装消息队列 3.0</h3><div class="subSection" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><ol style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 12px 0px 12px 12px; outline: 0px; padding: 16px; line-height: 1.5;"><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt16" sentenceid="94de1c390325dc0457b62b496f0c3f6e" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">打开<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“控制面板”</span>。</span></p></li><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt17" sentenceid="17f545901a26fd758dee1e18ee171869" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">单击<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“添加/删除程序”</span>，然后单击<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“添加/删除 Windows 组件”</span>。</span></p></li><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt18" sentenceid="af26bd1bbd93d2c4d939a1ea3aaab68f" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">选择“消息队列”并单击<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“详细信息”</span>。</span></p><div class="alert" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><table style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; border-spacing: 0px;"><tbody style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><tr style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><th style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><img src="https://i-technet.sec.s-msft.com/Aa967729.alert_note(zh-cn,VS.110).gif" alt="说明" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;" /><span style="font-family: inherit; border: 0px; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">说明</span></th></tr><tr style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><td style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt19" sentenceid="92db9666924442de6f58be7d4cb06938" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">如果运行的是 Windows Server 2003，请选择“应用程序服务器”来访问消息队列。</span></p></td></tr></tbody></table></div></li><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt20" sentenceid="4f3e89792e152b0693f98894f7c97d62" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">确保在详细信息页上已选中“MSMQ HTTP 支持”选项。</span></p></li><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt21" sentenceid="3e3b760c3851a3cd8fa7c984f46a2c86" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">单击<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“确定”</span>退出详细信息页，然后单击<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“下一步”</span>。&nbsp;</span><span id="tgt22" sentenceid="d849c720627e23a689a2004596638fa3" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">完成安装。</span></p></li><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span id="tgt23" sentenceid="f75243c8eee6e11b5c3d3375ad593012" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">如果提示您重新启动计算机，请单击<span class="label" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;">“确定”</span>完成安装。</span></p></li><li style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px; list-style-image: none;"><p style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px 0px 5px; outline: 0px; padding: 0px;"><span sentenceid="f75243c8eee6e11b5c3d3375ad593012" style="font-family: inherit; border: 0px; font-weight: inherit; font-style: inherit; margin: 0px; outline: 0px; padding: 0px;"><br /></span></p></li></ol></div></div></div></div></div>\r\n', 'hadong', '2015-04-20 09:49:23', '', '2015-08-14 15:12:49'),
-	(250, 42, 'demo', 'icon-m-file-lock', 'open', 0, 0, '<p>http://demo.hicapt.com/index.php?mod=index</p><p>http://zui.sexy/docs/controls.html#icons<br /></p><p><br /></p>\r\n', 'hadong', '2015-04-24 17:55:49', '', '2015-08-14 15:12:49'),
-	(269, 42, '呵呵', 'icon-m-folder', 'closed', 1, 1, NULL, 'admin', '2015-08-20 16:56:49', NULL, NULL),
-	(271, 269, 'css2221222211', 'icon-m-file-lock', 'open', 0, 0, '<p>scsdcssssssssss111111113331</p>\n\n<pre>\n<code class="language-java">public static void StringtoFile(String filePath,String str) throws IOException {\n            File file = new File(filePath);\n            FileOutputStream out = new FileOutputStream(file);//建立输出流\n            byte[] b = new byte[1024];\n            b = str.getBytes();//String转化为byte[]\n            out.write(b);//写入文本内容\n            out.close();\n	}</code></pre>\n\n<p>&nbsp;</p>\n', 'admin', '2015-08-21 09:48:05', 'admin', '2015-08-21 13:40:05');
+	(250, 42, 'demo', 'icon-m-file-lock', 'open', 0, 0, '<p>http://demo.hicapt.com/index.php?mod=index</p><p>http://zui.sexy/docs/controls.html#icons<br /></p><p><br /></p>\r\n', 'hadong', '2015-04-24 17:55:49', '', '2015-08-14 15:12:49');
 /*!40000 ALTER TABLE `codepad_article` ENABLE KEYS */;
 
 
--- 导出  表 wechat.home_carousel 结构
-DROP TABLE IF EXISTS `home_carousel`;
-CREATE TABLE IF NOT EXISTS `home_carousel` (
-  `crs_id` int(11) NOT NULL AUTO_INCREMENT,
-  `crs_h2` varchar(255) DEFAULT NULL,
-  `crs_p` text,
-  `crs_img` text,
-  `crs_href` text,
-  `crs_button` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`crs_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
--- 正在导出表  wechat.home_carousel 的数据：~2 rows (大约)
-DELETE FROM `home_carousel`;
-/*!40000 ALTER TABLE `home_carousel` DISABLE KEYS */;
-INSERT INTO `home_carousel` (`crs_id`, `crs_h2`, `crs_p`, `crs_img`, `crs_href`, `crs_button`) VALUES
-	(1, '美轮美奂', '用心去拍，留下最美的瞬间！', 'static/modules/home/img/slide-3.jpg', '', '关注'),
-	(2, '唯你独尊', '客户至上，给你最好的服务！', 'static/modules/home/img/slide-4.jpg', NULL, '订阅');
-/*!40000 ALTER TABLE `home_carousel` ENABLE KEYS */;
-
-
--- 导出  表 wechat.shiro_permissions 结构
+-- 导出  表 codepad.shiro_permissions 结构
 DROP TABLE IF EXISTS `shiro_permissions`;
 CREATE TABLE IF NOT EXISTS `shiro_permissions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -336,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `shiro_permissions` (
   UNIQUE KEY `idx_permissions_permission` (`permission`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- 正在导出表  wechat.shiro_permissions 的数据：~3 rows (大约)
+-- 正在导出表  codepad.shiro_permissions 的数据：~3 rows (大约)
 DELETE FROM `shiro_permissions`;
 /*!40000 ALTER TABLE `shiro_permissions` DISABLE KEYS */;
 INSERT INTO `shiro_permissions` (`id`, `permission`, `permission_desc`) VALUES
@@ -346,7 +297,7 @@ INSERT INTO `shiro_permissions` (`id`, `permission`, `permission_desc`) VALUES
 /*!40000 ALTER TABLE `shiro_permissions` ENABLE KEYS */;
 
 
--- 导出  表 wechat.shiro_roles 结构
+-- 导出  表 codepad.shiro_roles 结构
 DROP TABLE IF EXISTS `shiro_roles`;
 CREATE TABLE IF NOT EXISTS `shiro_roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -356,7 +307,7 @@ CREATE TABLE IF NOT EXISTS `shiro_roles` (
   UNIQUE KEY `idx_roles_role` (`role`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- 正在导出表  wechat.shiro_roles 的数据：~3 rows (大约)
+-- 正在导出表  codepad.shiro_roles 的数据：~3 rows (大约)
 DELETE FROM `shiro_roles`;
 /*!40000 ALTER TABLE `shiro_roles` DISABLE KEYS */;
 INSERT INTO `shiro_roles` (`id`, `role`, `role_desc`) VALUES
@@ -366,7 +317,7 @@ INSERT INTO `shiro_roles` (`id`, `role`, `role_desc`) VALUES
 /*!40000 ALTER TABLE `shiro_roles` ENABLE KEYS */;
 
 
--- 导出  表 wechat.shiro_roles_permissions 结构
+-- 导出  表 codepad.shiro_roles_permissions 结构
 DROP TABLE IF EXISTS `shiro_roles_permissions`;
 CREATE TABLE IF NOT EXISTS `shiro_roles_permissions` (
   `role_id` int(11) NOT NULL,
@@ -374,7 +325,7 @@ CREATE TABLE IF NOT EXISTS `shiro_roles_permissions` (
   PRIMARY KEY (`role_id`,`permission_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 正在导出表  wechat.shiro_roles_permissions 的数据：~5 rows (大约)
+-- 正在导出表  codepad.shiro_roles_permissions 的数据：~5 rows (大约)
 DELETE FROM `shiro_roles_permissions`;
 /*!40000 ALTER TABLE `shiro_roles_permissions` DISABLE KEYS */;
 INSERT INTO `shiro_roles_permissions` (`role_id`, `permission_id`) VALUES
@@ -386,7 +337,7 @@ INSERT INTO `shiro_roles_permissions` (`role_id`, `permission_id`) VALUES
 /*!40000 ALTER TABLE `shiro_roles_permissions` ENABLE KEYS */;
 
 
--- 导出  表 wechat.shiro_urls 结构
+-- 导出  表 codepad.shiro_urls 结构
 DROP TABLE IF EXISTS `shiro_urls`;
 CREATE TABLE IF NOT EXISTS `shiro_urls` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -400,7 +351,7 @@ CREATE TABLE IF NOT EXISTS `shiro_urls` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- 正在导出表  wechat.shiro_urls 的数据：~9 rows (大约)
+-- 正在导出表  codepad.shiro_urls 的数据：~9 rows (大约)
 DELETE FROM `shiro_urls`;
 /*!40000 ALTER TABLE `shiro_urls` DISABLE KEYS */;
 INSERT INTO `shiro_urls` (`id`, `permission_id`, `url_type_id`, `url`, `text`, `icon`, `url_order`, `is_iframe`) VALUES
@@ -416,7 +367,7 @@ INSERT INTO `shiro_urls` (`id`, `permission_id`, `url_type_id`, `url`, `text`, `
 /*!40000 ALTER TABLE `shiro_urls` ENABLE KEYS */;
 
 
--- 导出  表 wechat.shiro_urls_type 结构
+-- 导出  表 codepad.shiro_urls_type 结构
 DROP TABLE IF EXISTS `shiro_urls_type`;
 CREATE TABLE IF NOT EXISTS `shiro_urls_type` (
   `url_type_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -425,7 +376,7 @@ CREATE TABLE IF NOT EXISTS `shiro_urls_type` (
   PRIMARY KEY (`url_type_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- 正在导出表  wechat.shiro_urls_type 的数据：~3 rows (大约)
+-- 正在导出表  codepad.shiro_urls_type 的数据：~3 rows (大约)
 DELETE FROM `shiro_urls_type`;
 /*!40000 ALTER TABLE `shiro_urls_type` DISABLE KEYS */;
 INSERT INTO `shiro_urls_type` (`url_type_id`, `url_type_name`, `url_type_icon`) VALUES
@@ -435,7 +386,7 @@ INSERT INTO `shiro_urls_type` (`url_type_id`, `url_type_name`, `url_type_icon`) 
 /*!40000 ALTER TABLE `shiro_urls_type` ENABLE KEYS */;
 
 
--- 导出  表 wechat.shiro_users 结构
+-- 导出  表 codepad.shiro_users 结构
 DROP TABLE IF EXISTS `shiro_users`;
 CREATE TABLE IF NOT EXISTS `shiro_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -447,7 +398,7 @@ CREATE TABLE IF NOT EXISTS `shiro_users` (
   UNIQUE KEY `idx_users_username` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- 正在导出表  wechat.shiro_users 的数据：~3 rows (大约)
+-- 正在导出表  codepad.shiro_users 的数据：~3 rows (大约)
 DELETE FROM `shiro_users`;
 /*!40000 ALTER TABLE `shiro_users` DISABLE KEYS */;
 INSERT INTO `shiro_users` (`id`, `username`, `password`, `salt`, `locked`) VALUES
@@ -457,7 +408,7 @@ INSERT INTO `shiro_users` (`id`, `username`, `password`, `salt`, `locked`) VALUE
 /*!40000 ALTER TABLE `shiro_users` ENABLE KEYS */;
 
 
--- 导出  表 wechat.shiro_users_roles 结构
+-- 导出  表 codepad.shiro_users_roles 结构
 DROP TABLE IF EXISTS `shiro_users_roles`;
 CREATE TABLE IF NOT EXISTS `shiro_users_roles` (
   `user_id` int(11) NOT NULL,
@@ -465,7 +416,7 @@ CREATE TABLE IF NOT EXISTS `shiro_users_roles` (
   PRIMARY KEY (`user_id`,`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 正在导出表  wechat.shiro_users_roles 的数据：~3 rows (大约)
+-- 正在导出表  codepad.shiro_users_roles 的数据：~3 rows (大约)
 DELETE FROM `shiro_users_roles`;
 /*!40000 ALTER TABLE `shiro_users_roles` DISABLE KEYS */;
 INSERT INTO `shiro_users_roles` (`user_id`, `role_id`) VALUES
@@ -475,79 +426,7 @@ INSERT INTO `shiro_users_roles` (`user_id`, `role_id`) VALUES
 /*!40000 ALTER TABLE `shiro_users_roles` ENABLE KEYS */;
 
 
--- 导出  表 wechat.shop_goods 结构
-DROP TABLE IF EXISTS `shop_goods`;
-CREATE TABLE IF NOT EXISTS `shop_goods` (
-  `goods_id` int(11) NOT NULL AUTO_INCREMENT,
-  `menu_id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `detail` text NOT NULL,
-  `price` varchar(50) NOT NULL,
-  `sale` varchar(50) NOT NULL,
-  PRIMARY KEY (`goods_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- 正在导出表  wechat.shop_goods 的数据：~0 rows (大约)
-DELETE FROM `shop_goods`;
-/*!40000 ALTER TABLE `shop_goods` DISABLE KEYS */;
-/*!40000 ALTER TABLE `shop_goods` ENABLE KEYS */;
-
-
--- 导出  表 wechat.shop_menu 结构
-DROP TABLE IF EXISTS `shop_menu`;
-CREATE TABLE IF NOT EXISTS `shop_menu` (
-  `menu_id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- 正在导出表  wechat.shop_menu 的数据：~0 rows (大约)
-DELETE FROM `shop_menu`;
-/*!40000 ALTER TABLE `shop_menu` DISABLE KEYS */;
-/*!40000 ALTER TABLE `shop_menu` ENABLE KEYS */;
-
-
--- 导出  表 wechat.shop_order 结构
-DROP TABLE IF EXISTS `shop_order`;
-CREATE TABLE IF NOT EXISTS `shop_order` (
-  `order_id` varchar(100) NOT NULL,
-  `open_id` varchar(100) NOT NULL,
-  `total_price` varchar(50) NOT NULL,
-  `pay_style` varchar(50) NOT NULL,
-  `pay_status` char(1) NOT NULL,
-  `order_status` char(1) NOT NULL,
-  `order_note` varchar(255) NOT NULL,
-  `cartdata` text NOT NULL,
-  `create_id` varchar(50) NOT NULL,
-  `create_dt` datetime NOT NULL,
-  PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- 正在导出表  wechat.shop_order 的数据：~0 rows (大约)
-DELETE FROM `shop_order`;
-/*!40000 ALTER TABLE `shop_order` DISABLE KEYS */;
-/*!40000 ALTER TABLE `shop_order` ENABLE KEYS */;
-
-
--- 导出  表 wechat.shop_wifi 结构
-DROP TABLE IF EXISTS `shop_wifi`;
-CREATE TABLE IF NOT EXISTS `shop_wifi` (
-  `openId` varchar(100) NOT NULL,
-  `captcha` varchar(10) NOT NULL,
-  `expired_dt` datetime NOT NULL,
-  PRIMARY KEY (`openId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- 正在导出表  wechat.shop_wifi 的数据：~0 rows (大约)
-DELETE FROM `shop_wifi`;
-/*!40000 ALTER TABLE `shop_wifi` DISABLE KEYS */;
-INSERT INTO `shop_wifi` (`openId`, `captcha`, `expired_dt`) VALUES
-	('410000100', '109591', '2015-07-07 13:15:18');
-/*!40000 ALTER TABLE `shop_wifi` ENABLE KEYS */;
-
-
--- 导出  表 wechat.sys_config 结构
+-- 导出  表 codepad.sys_config 结构
 DROP TABLE IF EXISTS `sys_config`;
 CREATE TABLE IF NOT EXISTS `sys_config` (
   `cfg_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -557,7 +436,7 @@ CREATE TABLE IF NOT EXISTS `sys_config` (
   PRIMARY KEY (`cfg_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- 正在导出表  wechat.sys_config 的数据：~8 rows (大约)
+-- 正在导出表  codepad.sys_config 的数据：~8 rows (大约)
 DELETE FROM `sys_config`;
 /*!40000 ALTER TABLE `sys_config` DISABLE KEYS */;
 INSERT INTO `sys_config` (`cfg_id`, `cfg_key`, `cfg_value`, `cfg_type_id`) VALUES
@@ -572,7 +451,7 @@ INSERT INTO `sys_config` (`cfg_id`, `cfg_key`, `cfg_value`, `cfg_type_id`) VALUE
 /*!40000 ALTER TABLE `sys_config` ENABLE KEYS */;
 
 
--- 导出  表 wechat.sys_config_type 结构
+-- 导出  表 codepad.sys_config_type 结构
 DROP TABLE IF EXISTS `sys_config_type`;
 CREATE TABLE IF NOT EXISTS `sys_config_type` (
   `cfg_type_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -580,7 +459,7 @@ CREATE TABLE IF NOT EXISTS `sys_config_type` (
   PRIMARY KEY (`cfg_type_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- 正在导出表  wechat.sys_config_type 的数据：~4 rows (大约)
+-- 正在导出表  codepad.sys_config_type 的数据：~4 rows (大约)
 DELETE FROM `sys_config_type`;
 /*!40000 ALTER TABLE `sys_config_type` DISABLE KEYS */;
 INSERT INTO `sys_config_type` (`cfg_type_id`, `cfg_type_name`) VALUES
@@ -589,68 +468,6 @@ INSERT INTO `sys_config_type` (`cfg_type_id`, `cfg_type_name`) VALUES
 	(3, '微信基础配置'),
 	(4, '颜色配置');
 /*!40000 ALTER TABLE `sys_config_type` ENABLE KEYS */;
-
-
--- 导出  表 wechat.wx_customer 结构
-DROP TABLE IF EXISTS `wx_customer`;
-CREATE TABLE IF NOT EXISTS `wx_customer` (
-  `openId` varchar(50) NOT NULL,
-  `subscribe_flag` char(1) NOT NULL,
-  `true_name` varchar(20) DEFAULT NULL,
-  `mobile` varchar(20) DEFAULT NULL,
-  `address` text,
-  `money` varchar(50) DEFAULT NULL,
-  `create_id` varchar(50) NOT NULL,
-  `create_dt` datetime NOT NULL,
-  `update_id` varchar(50) DEFAULT NULL,
-  `update_dt` datetime DEFAULT NULL,
-  PRIMARY KEY (`openId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- 正在导出表  wechat.wx_customer 的数据：~2 rows (大约)
-DELETE FROM `wx_customer`;
-/*!40000 ALTER TABLE `wx_customer` DISABLE KEYS */;
-INSERT INTO `wx_customer` (`openId`, `subscribe_flag`, `true_name`, `mobile`, `address`, `money`, `create_id`, `create_dt`, `update_id`, `update_dt`) VALUES
-	('410000100', '1', '', '', '', '', '直接关注', '2015-06-10 14:50:30', '直接关注', '2015-08-06 11:23:56'),
-	('acxiom', '1', NULL, NULL, NULL, NULL, '直接关注', '2015-08-05 22:28:56', '直接关注', '2015-08-05 22:58:05');
-/*!40000 ALTER TABLE `wx_customer` ENABLE KEYS */;
-
-
--- 导出  表 wechat.wx_dev_config 结构
-DROP TABLE IF EXISTS `wx_dev_config`;
-CREATE TABLE IF NOT EXISTS `wx_dev_config` (
-  `appId` varchar(50) NOT NULL,
-  `appSecret` varchar(50) NOT NULL,
-  `token` varchar(100) NOT NULL,
-  `messageEncrypt` tinyint(1) NOT NULL,
-  `encodingAesKey` varchar(255) NOT NULL,
-  PRIMARY KEY (`appId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='微信配置表';
-
--- 正在导出表  wechat.wx_dev_config 的数据：~0 rows (大约)
-DELETE FROM `wx_dev_config`;
-/*!40000 ALTER TABLE `wx_dev_config` DISABLE KEYS */;
-INSERT INTO `wx_dev_config` (`appId`, `appSecret`, `token`, `messageEncrypt`, `encodingAesKey`) VALUES
-	('wxbbaed5839238c4eb', '064682c9add7e6756f9f435c904825a9', 'eastbride', 0, 'RBSOCvhUnTljEvosRNwwek2NB6wIuqI2B4sVNpM3Ni6');
-/*!40000 ALTER TABLE `wx_dev_config` ENABLE KEYS */;
-
-
--- 导出  表 wechat.wx_props 结构
-DROP TABLE IF EXISTS `wx_props`;
-CREATE TABLE IF NOT EXISTS `wx_props` (
-  `appId` varchar(50) NOT NULL,
-  `appSecret` varchar(50) NOT NULL,
-  `token` varchar(100) NOT NULL,
-  `messageEncrypt` tinyint(1) NOT NULL,
-  `encodingAesKey` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='微信配置表';
-
--- 正在导出表  wechat.wx_props 的数据：~0 rows (大约)
-DELETE FROM `wx_props`;
-/*!40000 ALTER TABLE `wx_props` DISABLE KEYS */;
-INSERT INTO `wx_props` (`appId`, `appSecret`, `token`, `messageEncrypt`, `encodingAesKey`) VALUES
-	('wxbbaed5839238c4eb', '064682c9add7e6756f9f435c904825a9', 'eastbride', 0, 'RBSOCvhUnTljEvosRNwwek2NB6wIuqI2B4sVNpM3Ni6');
-/*!40000 ALTER TABLE `wx_props` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
