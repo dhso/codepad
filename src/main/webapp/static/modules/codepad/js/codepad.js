@@ -10,7 +10,7 @@ function init_layout(){
 		close_loading();
 	}
 	load_list_tree(search_value);
-	load_list_table();
+	load_home_page(1,5);
 	reg_search_input();
 	reg_security_button();
 	reg_login_win_enter();
@@ -21,31 +21,53 @@ function init_layout(){
 	close_loading();
 }
 
-/*加载文章列表*/
-function load_list_table(){
-	$('#article_list_table').datagrid({
-	    url:baseUrl+'/getArticlePageList',
-	    columns:[[
-	        {field:'id',title:'ID',width:35,hidden:true},
-	        {field:'text',title:'文章标题',width:340},
-	        {field:'create_id',title:'创建者',width:65},
-	        {field:'create_dt',title:'创建时间',width:130},
-	        {field:'update_id',title:'更新者',width:65},
-	        {field:'update_dt',title:'更新时间',width:130}
-	    ]],
-	    fitColumns:true,
-	    pagination:true,
-		pagePosition:'top',
-	    pageSize:20,
-	    singleSelect:true,
-	    rowStyler: function(index,row){
-			return {class:'article-table'};
+function load_home_page(page,rows){
+	showProgress('加载中','正在加载中，请耐心等待...');
+	$.post(baseUrl+'/getArticlePageList',{
+		page:page,
+		rows:rows
+	},function(data){
+		if(data && data.list){
+			$('#article_item').html('');
+			$.each(data.list,function(index,element){
+				$('#article_item').append(article_template(element));
+			})
+			$('#article_pagination').pagination({
+			    total:data.totalRow,
+			    pageSize:data.pageSize,
+			    pageNumber:data.pageNumber,
+			    layout:['first','prev','links','next','last'],
+			    displayMsg:'提示：本页从第  {from} 篇到第 {to} 篇，共计 {total} 篇文章',
+			    onSelectPage:function(pageNumber, pageSize){
+					$(this).pagination('loading');
+					load_home_page(pageNumber,pageSize);
+					$(this).pagination('loaded');
+				}
+			});
+			apply_highlighting('home_page');
 		}
+		closeProgress();
 	});
-	$('#article_list_table').datagrid('getPager').pagination({
-		layout:['first','prev','links','next','last','sep','refresh'],
-		displayMsg:'提示：当前显示第 {from} 篇到第 {to} 篇，共计 {total} 篇文章'
-	});
+}
+
+function article_template(data){
+	var tmp = '';
+	if(data){
+		tmp += '<div class="item">';
+	    tmp += '<div class="item-heading">';
+	    tmp += '<h3><span class="icon-png icon-m-file"></span><a href="javascript:open_tab(\''+data.id+'\',\''+data.text+'\');" title="点击进入阅读">'+data.text+'</a></h3>';
+	    tmp += '</div>';
+	    tmp += '<div class="item-footer tree-info">';
+	    tmp += '<span>作者：'+data.create_id+'</span>&nbsp;&nbsp;';
+	    tmp += '<span>创建时间：'+data.create_dt+'</span>&nbsp;&nbsp;';
+	    tmp += '<span>更新时间：'+data.update_dt+'</span>&nbsp;&nbsp;';
+	    tmp += '</div>';
+	    tmp += '<div class="item-content">';
+	    tmp += data.article;
+	    tmp += '</div>';
+	    tmp += '</div>';
+	}
+    return tmp;
 }
 
 function reg_zclip(){

@@ -115,6 +115,6 @@ public class CodepadModel extends Model<CodepadModel> {
 	 * @return
 	 */
 	public Page<Record> getArticlePageList(Integer pageNumber, Integer pageSize) {
-		return Db.paginate(pageNumber, pageSize, "select id,text,create_id,create_dt,update_id,update_dt", "from codepad_article where node = '0' order by update_dt desc");
+		return Db.paginate(pageNumber, pageSize, "select id,text,article,create_id,create_dt,update_id,update_dt", "from codepad_article where node = '0' order by update_dt desc");
 	}
 }

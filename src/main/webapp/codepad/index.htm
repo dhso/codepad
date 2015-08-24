@@ -41,8 +41,10 @@
         <div data-options="region:'center',split:false,title:' ',border:false,headerCls:'region-header'" >
             <!-- tab栏 -->
             <div id="content_tab" class="easyui-tabs" data-options="fit:true,border:false,plain:true,pill:true">
-                <div title="首页" data-options="closable:false,bodyCls: 'content-tab-content'" id="home_page">
-                    <table id="article_list_table"></table>
+                <div title="首页" data-options="closable:false,bodyCls: 'content-tab-content mCustomScrollbar'" id="home_page">
+                    <div class="article_item" id="article_item">
+                    </div>
+                    <div id="article_pagination"></div>
                 </div>
             </div>
         </div>

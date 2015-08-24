@@ -9,8 +9,6 @@ import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
 
-import frame.plugin.easyui.DataGrid;
-
 public class CodepadController extends Controller {
 
 	public void index() {
@@ -84,7 +82,7 @@ public class CodepadController extends Controller {
 		Integer pageNumber = getParaToInt("page", 1);
 		Integer pageSize = getParaToInt("rows", 10);
 		Page<Record> articlePageList = CodepadModel.dao.getArticlePageList(pageNumber, pageSize);
-		renderJson(new DataGrid(String.valueOf(articlePageList.getTotalRow()), articlePageList.getList()));
+		renderJson(articlePageList);
 	}
 
 }
