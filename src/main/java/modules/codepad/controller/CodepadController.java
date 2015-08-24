@@ -6,7 +6,10 @@ import modules.codepad.entity.Result;
 import modules.codepad.model.CodepadModel;
 
 import com.jfinal.core.Controller;
+import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
+
+import frame.plugin.easyui.DataGrid;
 
 public class CodepadController extends Controller {
 
@@ -75,7 +78,13 @@ public class CodepadController extends Controller {
 		} else {
 			renderJson(new Result("500", "更新失败！"));
 		}
+	}
 
+	public void getArticlePageList() {
+		Integer pageNumber = getParaToInt("page", 1);
+		Integer pageSize = getParaToInt("rows", 10);
+		Page<Record> articlePageList = CodepadModel.dao.getArticlePageList(pageNumber, pageSize);
+		renderJson(new DataGrid(String.valueOf(articlePageList.getTotalRow()), articlePageList.getList()));
 	}
 
 }

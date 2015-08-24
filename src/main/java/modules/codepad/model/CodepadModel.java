@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Model;
+import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
 
 import frame.kit.StringKit;
@@ -104,5 +105,16 @@ public class CodepadModel extends Model<CodepadModel> {
 			return Db.update("update codepad_article set text = ?,update_id = ?,update_dt = now() where id = ?", text, update_id, id);
 		}
 		return 0;
+	}
+
+	/**
+	 * 分页获取文章列表
+	 * 
+	 * @param pageNumber
+	 * @param pageSize
+	 * @return
+	 */
+	public Page<Record> getArticlePageList(Integer pageNumber, Integer pageSize) {
+		return Db.paginate(pageNumber, pageSize, "select id,text,create_id,create_dt,update_id,update_dt", "from codepad_article where node = '0' order by update_dt desc");
 	}
 }

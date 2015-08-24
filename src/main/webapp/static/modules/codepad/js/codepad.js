@@ -10,6 +10,7 @@ function init_layout(){
 		close_loading();
 	}
 	load_list_tree(search_value);
+	load_list_table();
 	reg_search_input();
 	reg_security_button();
 	reg_login_win_enter();
@@ -18,6 +19,33 @@ function init_layout(){
 	reg_list_blank_menu();
 	reg_content_tab_menu();
 	close_loading();
+}
+
+/*加载文章列表*/
+function load_list_table(){
+	$('#article_list_table').datagrid({
+	    url:baseUrl+'/getArticlePageList',
+	    columns:[[
+	        {field:'id',title:'ID',width:35,hidden:true},
+	        {field:'text',title:'文章标题',width:340},
+	        {field:'create_id',title:'创建者',width:65},
+	        {field:'create_dt',title:'创建时间',width:130},
+	        {field:'update_id',title:'更新者',width:65},
+	        {field:'update_dt',title:'更新时间',width:130}
+	    ]],
+	    fitColumns:true,
+	    pagination:true,
+		pagePosition:'top',
+	    pageSize:20,
+	    singleSelect:true,
+	    rowStyler: function(index,row){
+			return {class:'article-table'};
+		}
+	});
+	$('#article_list_table').datagrid('getPager').pagination({
+		layout:['first','prev','links','next','last','sep','refresh'],
+		displayMsg:'提示：当前显示第 {from} 篇到第 {to} 篇，共计 {total} 篇文章'
+	});
 }
 
 function reg_zclip(){

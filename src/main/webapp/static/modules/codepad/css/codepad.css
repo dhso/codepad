@@ -58,12 +58,26 @@ body {
 	font-weight: normal;
 }
 
-.hidden{
-	display:none;
+.hidden {
+	display: none;
 }
 
-.tree-info{
-	color:#ccc;
+.tree-info {
+	color: #ccc;
+}
+
+.article-table td {
+	border-width: 0 0 1px 0;
+	border-color: #ccc;
+}
+
+#home_page .datagrid .panel-body-noheader{
+	border: 0;
+}
+
+#home_page .pagination {
+	position: fixed;
+	bottom: 1px;
 }
 
 a {
