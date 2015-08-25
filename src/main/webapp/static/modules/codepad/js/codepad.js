@@ -1,7 +1,12 @@
 var search_value = '';
+var duoshuoQuery = {
+	short_name: "codepad"
+};
+
 $(document).ready(function() {
 	init_layout();
 	load_directPage();
+	init_duoshuo();
 });
 
 //初始化布局
@@ -10,7 +15,8 @@ function init_layout(){
 		close_loading();
 	}
 	load_list_tree(search_value);
-	load_home_page(1,5);
+	load_home_page(1,5,true);
+	load_duoshuo_message();
 	reg_search_input();
 	reg_security_button();
 	reg_login_win_enter();
@@ -21,8 +27,38 @@ function init_layout(){
 	close_loading();
 }
 
-function load_home_page(page,rows){
-	showProgress('加载中','正在加载中，请耐心等待...');
+function init_duoshuo(){
+	var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+}
+
+function load_duoshuo_message(){
+	$('#ds_guest_icon').click(function(){
+		if($('.ds-guest').css('right') == '-200px'){
+			$('.ds-guest').animate({ right: "30px" });
+		}
+		if($('.ds-guest').css('right') == '30px'){
+			$('.ds-guest').animate({ right: "-200px" });
+		}
+	});
+	$('#ds_guest_icon').tooltip({
+	    position: 'left',
+	    content: '<span style="color:#fff">查看最新动态</span>',
+	    onShow: function(){
+	        $(this).tooltip('tip').css({
+	            backgroundColor: '#666',
+	            borderColor: '#666'
+	        });
+	    }
+	});
+}
+function load_home_page(page,rows,init){
+	if(!init){
+		showProgress('加载中','正在加载中，请耐心等待...');
+	}
 	$.post(baseUrl+'/getArticlePageList',{
 		page:page,
 		rows:rows
@@ -46,7 +82,9 @@ function load_home_page(page,rows){
 			});
 			apply_highlighting('home_page');
 		}
-		closeProgress();
+		if(!init){
+			closeProgress();
+		}
 	});
 }
 
@@ -55,15 +93,28 @@ function article_template(data){
 	if(data){
 		tmp += '<div class="item">';
 	    tmp += '<div class="item-heading">';
-	    tmp += '<h3><span class="icon-png icon-m-file"></span><a href="javascript:open_tab(\''+data.id+'\',\''+data.text+'\');" title="点击进入阅读">'+data.text+'</a></h3>';
+	    if(data.open == '1' || (data.open == '0' && data.create_id == $.cookie('c_nick'))){
+	    	tmp += '<h3><span class="icon-png icon-m-file"></span><a href="javascript:open_tab(\''+data.id+'\',\''+data.text+'\');" title="点击进入阅读">'+data.text+'</a></h3>';
+	    }else{
+	    	tmp += '<h3><span class="icon-png icon-m-file-lock"></span><a href="javascript:$.messager.alert(\'提示\', \'您没有权限查看此文件\', \'info\');" title="点击进入阅读">'+data.text+'</a></h3>';
+	    }
 	    tmp += '</div>';
 	    tmp += '<div class="item-footer tree-info">';
 	    tmp += '<span>作者：'+data.create_id+'</span>&nbsp;&nbsp;';
 	    tmp += '<span>创建时间：'+data.create_dt+'</span>&nbsp;&nbsp;';
 	    tmp += '<span>更新时间：'+data.update_dt+'</span>&nbsp;&nbsp;';
+	    tmp += '<span>评论：</span><span class="ds-thread-count" data-thread-key="'+data.id+'">暂无评论</span>';
 	    tmp += '</div>';
 	    tmp += '<div class="item-content">';
-	    tmp += data.article;
+	    if(data.open == '1' || (data.open == '0' && data.create_id == $.cookie('c_nick'))){
+	    	tmp += data.article;
+	    }else{
+	    	tmp += '<br />';
+	    	tmp += '========================================<br />';
+	    	tmp += '========&nbsp;&nbsp;&nbsp;&nbsp;该文章已被设为私有，您无权查看！&nbsp;&nbsp;========<br />';
+	    	tmp += '========================================<br />';
+	    	tmp += '<br />';
+	    }
 	    tmp += '</div>';
 	    tmp += '</div>';
 	}

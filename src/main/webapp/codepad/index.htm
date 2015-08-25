@@ -11,9 +11,6 @@
         <link rel="shortcut icon" type="image/x-icon" href="${baseUrl}/static/modules/codepad/img/codepad.ico" />
     	<script>
     	var baseUrl = '${baseUrl}';
-    	var duoshuoQuery = {
-    		short_name: "codepad"
-    	};
     	</script>
     </head>
     <body class="easyui-layout">
@@ -45,10 +42,14 @@
                     <div class="article_item" id="article_item">
                     </div>
                     <div id="article_pagination"></div>
+                    <div class="ds-guest">
+                    	<span id="ds_guest_icon" class="icon-png icon-m-user-message">&nbsp;</span>
+			         	<ul class="ds-recent-visitors" data-num-items="10"></ul>
+			         	<ul class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-title="0"></ul>
+					</div>
                 </div>
             </div>
         </div>
-        
         <!-- 添加根文件/文件夹 -->
         <div id="list_blank_menu" class="easyui-menu" style="width:150px;">
             <div id="add_blank_folder" onclick="add_folder('0')" data-options="iconCls:'tree-folder'">添加文件夹</div>
@@ -114,7 +115,6 @@
         <script type="text/javascript" src="${baseUrl}/static/js/desktop-notify.js"></script>
         <script type="text/javascript" src="${baseUrl}/static/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
-        <script type="text/javascript" src="http://static.duoshuo.com/embed.js"></script>
         <script type="text/javascript" src="${baseUrl}/static/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
         <script type="text/javascript" src="${baseUrl}/static/modules/codepad/js/codepad.js"></script>
     </body>

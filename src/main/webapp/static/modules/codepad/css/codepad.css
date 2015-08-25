@@ -32,7 +32,7 @@ body {
 	margin-top: 35px;
 }
 
-#region_north, #region_north .l-btn {
+#region_north,#region_north .l-btn {
 	background-color: #548ac1;
 	color: #fff;
 }
@@ -49,10 +49,11 @@ body {
 	background: -o-linear-gradient(top, #548ac1 0, aliceblue 100%);
 	background: linear-gradient(to bottom, #548ac1 0, aliceblue 100%);
 	background-repeat: repeat-x;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#548ac1, endColorstr=aliceblue, GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#548ac1,
+		endColorstr=aliceblue, GradientType=0);
 }
 
-.region-header, .region-header .panel-title {
+.region-header,.region-header .panel-title {
 	color: #fff;
 	font-weight: normal;
 }
@@ -86,6 +87,25 @@ body {
 
 .icon-png {
 	padding-right: 20px;
+}
+
+.ds-guest {
+	bottom: 80px;
+	right: -200px;
+	position: fixed;
+	width: 211px;
+	height: 332px;
+}
+
+#ds_guest_icon {
+	position: absolute;
+	left: -40px;
+	top: 20px;
+	cursor: pointer;
+}
+
+#ds_guest_title {
+	padding-left: 15px;
 }
 
 a {
