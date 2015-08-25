@@ -96,7 +96,7 @@ function article_template(data){
 	    if(data.open == '1' || (data.open == '0' && data.create_id == $.cookie('c_nick'))){
 	    	tmp += '<h3><span class="icon-png icon-m-file"></span><a href="javascript:open_tab(\''+data.id+'\',\''+data.text+'\');" title="点击进入阅读">'+data.text+'</a></h3>';
 	    }else{
-	    	tmp += '<h3><span class="icon-png icon-m-file-lock"></span><a href="javascript:$.messager.alert(\'提示\', \'您没有权限查看此文件\', \'info\');" title="点击进入阅读">'+data.text+'</a></h3>';
+	    	tmp += '<h3><span class="icon-png icon-m-file-lock"></span><a href="javascript:void(0);" title="点击进入阅读" onclick="$.messager.alert(\'提示\', \'您没有权限查看此文件\', \'info\')">'+data.text+'</a></h3>';
 	    }
 	    tmp += '</div>';
 	    tmp += '<div class="item-footer tree-info">';
