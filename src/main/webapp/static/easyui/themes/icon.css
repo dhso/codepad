@@ -115,3 +115,9 @@
 .icon-m-user-message{
 	background:url('icons/m_user_message.png') no-repeat center center;
 }
+.icon-m-arrow-up{
+	background:url('icons/m_arrow_up.png') no-repeat center center;
+}
+.icon-m-arrow-down{
+	background:url('icons/m_arrow_down.png') no-repeat center center;
+}

@@ -104,6 +104,20 @@ body {
 	cursor: pointer;
 }
 
+#page_up {
+	position: absolute;
+	left: -40px;
+	top: -20px;
+	cursor: pointer;
+}
+
+#page_down {
+	position: absolute;
+	left: -40px;
+	top: 60px;
+	cursor: pointer;
+}
+
 #ds_guest_title {
 	padding-left: 15px;
 }
