@@ -6,6 +6,7 @@ var duoshuoQuery = {
 $(document).ready(function() {
 	init_layout();
 	load_directPage();
+	init_baidu_tongji();
 	init_duoshuo();
 });
 
@@ -25,6 +26,16 @@ function init_layout(){
 	reg_list_blank_menu();
 	reg_content_tab_menu();
 	close_loading();
+}
+
+function init_baidu_tongji(){
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?78f0d55f115e61411b06468e1245d4cd";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
 }
 
 function init_duoshuo(){

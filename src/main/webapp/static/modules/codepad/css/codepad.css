@@ -90,7 +90,7 @@ body {
 }
 
 .ds-guest {
-	bottom: 80px;
+	top: 200px;
 	right: -200px;
 	position: fixed;
 	width: 211px;
