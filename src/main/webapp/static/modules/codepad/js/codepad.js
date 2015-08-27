@@ -66,6 +66,12 @@ function load_duoshuo_message(){
 	    }
 	});
 }
+
+function refresh_home_page(){
+	var articlePagination = $('#article_pagination').pagination('options');
+	load_home_page(articlePagination.pageNumber,articlePagination.pageSize);
+}
+
 function load_home_page(page,rows,init){
 	if(!init){
 		showProgress('加载中','正在加载中，请耐心等待...');

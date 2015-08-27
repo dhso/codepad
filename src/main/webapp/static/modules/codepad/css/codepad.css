@@ -118,8 +118,11 @@ body {
 	cursor: pointer;
 }
 
-#ds_guest_title {
-	padding-left: 15px;
+#page_refresh {
+	position: absolute;
+	left: -40px;
+	top: 100px;
+	cursor: pointer;
 }
 
 a {
