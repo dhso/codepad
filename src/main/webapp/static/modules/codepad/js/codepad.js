@@ -683,8 +683,13 @@ function toggleDuoshuoComments(container, content_id, content_url) {
     el.setAttribute('data-url', content_url); //必选参数 你网页的网址
     //el.setAttribute('data-title', content_title);//可选参数 你网页的标题
     el.setAttribute('data-author-key', ''); //可选参数 作者的本地用户ID
-    DUOSHUO.EmbedThread(el);
-    jQuery(container).append(el);
+    try{
+	    DUOSHUO.EmbedThread(el);
+	    jQuery(container).append(el);
+    }catch (e) {
+    	console.log('多说模块加载失败，错误如下：');
+    	console.log(e.name + ": " + e.message);
+    }
 };
 
 
