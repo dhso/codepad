@@ -1,3 +1,7 @@
+$.parser.onComplete = function(){
+	close_loading();
+}
+
 var search_value = '';
 var duoshuoQuery = {
 	short_name: "codepad"
@@ -5,16 +9,12 @@ var duoshuoQuery = {
 
 $(document).ready(function() {
 	init_layout();
-	load_directPage();
 	init_baidu_tongji();
 	init_duoshuo();
 });
 
 //初始化布局
 function init_layout(){
-	$.parser.onComplete = function(){
-		close_loading();
-	}
 	load_list_tree(search_value);
 	load_home_page(1,5,true);
 	load_duoshuo_message();
@@ -25,7 +25,6 @@ function init_layout(){
 	reg_update_file_editor();
 	reg_list_blank_menu();
 	reg_content_tab_menu();
-	close_loading();
 }
 
 function init_baidu_tongji(){
@@ -43,6 +42,9 @@ function init_duoshuo(){
     ds.type = 'text/javascript';ds.async = true;
     ds.src = 'http://static.duoshuo.com/embed.js';
     ds.charset = 'UTF-8';
+    ds.onload = ds.onreadystatechange = function(){
+    	load_directPage();
+    };
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
 }
 
@@ -98,6 +100,7 @@ function load_home_page(page,rows,init){
 				}
 			});
 			apply_highlighting('home_page');
+			triggerDuoShuo();
 		}
 		if(!init){
 			closeProgress();
@@ -642,22 +645,12 @@ function apply_highlighting(id) {
 function load_directPage() {
     var aid = getUrlParam('aid');
     if (aid) {
-    	showProgress('加载中','正在加载中，请耐心等待...');
     	$.get(baseUrl + '/getArticle?id='+aid,function(res){
-    		$('#content_tab').tabs('add', {
-    			id:'tab_page_'+res.id,
-    			title:res.id+'.'+res.text,
-    		    closable:true,
-    		    cls: 'content-tab-header',
-                bodyCls: 'content-tab-content',
-                content: do_makeContent(res),
-                onOpen: function() {
-                	after_tab_load(res.id);
-                }
-    		});
+    		open_tab(res.id,res.text);
     	})
     }
 }
+
 /*tab打开之后*/
 function after_tab_load(id){
 	reg_tab_page_menus();
@@ -666,6 +659,7 @@ function after_tab_load(id){
 	toggleDuoshuoComments('#comment-box-' + id, id, page_url);
 	closeProgress();
 }
+
 /*获取URL参数*/
 function getUrlParam(key) {
     var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
@@ -674,9 +668,7 @@ function getUrlParam(key) {
     return null; //返回参数值
 }
 
-
-
-
+/*加载多说评论框*/
 function toggleDuoshuoComments(container, content_id, content_url) {
     var el = document.createElement('div'); //该div不需要设置class="ds-thread"
     el.setAttribute('data-thread-key', content_id); //必选参数 文章的本地ID
@@ -692,8 +684,15 @@ function toggleDuoshuoComments(container, content_id, content_url) {
     }
 };
 
-
-
+/*触发多说初始化*/
+function triggerDuoShuo(){
+	try{
+		DUOSHUO.init();
+    }catch (e) {
+    	console.log('多说模块加载失败，错误如下：');
+    	console.log(e.name + ": " + e.message);
+    }
+}
 
 /*格式化文章*/
 function do_makeContent(res){
